@@ -971,5 +971,14 @@ Usage(使用帮助):
         my_proxies = data.getProxies()
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
-    resd = loop.run_until_complete(core.core(my_proxies))
+    # resd = loop.run_until_complete(core.core(my_proxies))
+    from utils.export import ExportTopo,ExportSpeed
+    # export_topo = ExportTopo(resd)
+    # export_topo.exportTopoInbound(info2=resd["inbound"])
+    # image, width, height = export_topo.exportTopoOutbound(info=resd["outbound"])
+    # image.save("outbound.png")
+    resd = {'节点名称': ['🇭🇰 香港01'], '类型': ['Shadowsocks'], 'HTTP(S)延迟': ['131ms'], '平均速度': ['40.04MB'], '最大速度': ['46.44MB'], '每秒速度': [[46.44112975216499, 34.44142144799643, 42.81343859395727, 41.933183336579795, 43.008151041654266, 40.6123525208129, 39.70233986740251, 42.0066462193281, 38.731278488532766, 42.60593863684731]], 'UDP类型': ['Blocked'], '消耗流量': 455.81, 'wtime': '15.1', 'filter': {'include': '', 'exclude': ''}, '线程': 4}
+    print(resd)
+    export_speed = ExportSpeed(resd["节点名称"],resd)
+    export_speed.exportImage()
     print(resd)

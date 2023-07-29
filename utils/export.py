@@ -994,7 +994,7 @@ class ExportTopo(ExportResult):
         :param: compare 是传入的另一张图片宽度，将与当前图片宽度做比较，目的为了保持两张原本宽度不同的图能宽度一致
         :return:
         """
-        img_width = 100  # 序号
+        img_width = 1000  # 序号
         infolist_width = self.key_value()
         info_width = 0
         for i in infolist_width:
@@ -1009,6 +1009,8 @@ class ExportTopo(ExportResult):
         return img_width, infolist_width
 
     def get_height(self):
+        logger.info(f"图片高宽数据为{self.nodenum * 60}")
+        
         heightlist = (self.nodenum + 4) * 60
         return heightlist
 
